@@ -1,0 +1,329 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Suscríbete a nuestro Newsletter">
+  <Header />
+  <main class="container">
+    <section class="newsletter-hero">
+      <h1>Mantente al día con las últimas noticias de seguridad</h1>
+      <p>Suscríbete a nuestro newsletter y recibe actualizaciones semanales sobre ciberseguridad, tecnología y más.</p>
+    </section>
+
+    <section class="newsletter-form">
+      <h2>Únete a nuestra comunidad</h2>
+      <form id="subscribe-form">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Suscribirse</button>
+      </form>
+    </section>
+
+    <section class="newsletter-benefits">
+      <h2>¿Por qué suscribirse?</h2>
+      <ul>
+        <li>🔒 Recibe las últimas noticias sobre seguridad informática</li>
+        <li>🔐 Aprende trucos y consejos para proteger tus dispositivos</li>
+        <li>🔍 Mantente informado sobre las nuevas amenazas cibernéticas</li>
+        <li>🔑 Accede a contenido exclusivo y guías detalladas</li>
+      </ul>
+    </section>
+
+    <section class="newsletter-faq">
+      <h2>Preguntas frecuentes</h2>
+      <div class="faq-item">
+        <h3>¿Con qué frecuencia recibiré el newsletter?</h3>
+        <p>Enviamos nuestro newsletter una vez por semana, generalmente los viernes.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Puedo cancelar mi suscripción en cualquier momento?</h3>
+        <p>Sí, puedes darte de baja fácilmente en cualquier momento haciendo clic en el enlace de cancelación que aparece en cada correo.</p>
+      </div>
+      <div class="faq-item">
+        <h3>¿Qué tipo de contenido incluye el newsletter?</h3>
+        <p> Nuestro newsletter cubre una amplia gama de temas relacionados con la seguridad informática, incluyendo noticias, tutoriales, análisis de productos y consejos prácticos.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('subscribe-form');
+    if (form) {
+      form.addEventListener('submit', function(e: Event) {
+        e.preventDefault();
+        // Aquí iría la lógica para procesar la suscripción
+        alert('¡Gracias por suscribirte! Te mantendremos informado de las últimas noticias de seguridad y trucos de programación y tecnología.');
+      });
+    }
+  });
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-text-light: #a0a0a0;
+  --color-primary: #00ffff;
+  --color-secondary: #ff00ff;
+  --color-accent: #8b5cf6;
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 20%),
+    linear-gradient(to bottom, #000000, #1a1a2e);
+  background-attachment: fixed;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.newsletter-hero {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 6rem;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.newsletter-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg at 50% 50%, var(--color-primary) 0deg, transparent 60deg, var(--color-secondary) 120deg, transparent 180deg, var(--color-accent) 240deg, transparent 300deg);
+  animation: rotate 20s linear infinite;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+.newsletter-hero h1 {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.newsletter-hero p {
+  font-size: 1.3rem;
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.newsletter-form {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 3rem;
+  border-radius: 20px;
+  margin-bottom: 5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 255, 255, 0.2);
+}
+
+.newsletter-form h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.newsletter-form form {
+  display: flex;
+  gap: 1rem;
+}
+
+.newsletter-form input[type="email"] {
+  flex-grow: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.newsletter-form button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.newsletter-form button:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(255, 0, 255, 0.4);
+}
+
+.newsletter-benefits {
+  margin-bottom: 5rem;
+}
+
+.newsletter-benefits h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.newsletter-benefits ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.newsletter-benefits li {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 15px;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-benefits li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.newsletter-benefits li::before {
+  content: '✦';
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--color-secondary);
+  font-size: 1.5rem;
+}
+
+.newsletter-faq {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-faq h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.faq-item {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(139, 92, 246, 0.1);
+}
+
+.faq-item h3 {
+  font-size: 1.3rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.8rem;
+}
+
+.faq-item p {
+  color: var(--color-text-light);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .newsletter-hero {
+    margin-top: 60px;
+    padding-top: 60px;
+  }
+  .newsletter-hero h1 {
+    font-size: 2.8rem;
+  }
+  .newsletter-hero p {
+    font-size: 1.1rem;
+  }
+  .newsletter-form,
+  .newsletter-benefits,
+  .newsletter-faq {
+    padding: 2rem;
+  }
+  .newsletter-form h2,
+  .newsletter-benefits h2,
+  .newsletter-faq h2 {
+    font-size: 2rem;
+  }
+  .newsletter-form form {
+    flex-direction: column;
+  }
+  .newsletter-form button {
+    width: 100%;
+  }
+  .newsletter-benefits ul {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

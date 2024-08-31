@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const eventos = [
+    {
+        titulo: "Feria Tecnico Profesional",
+        descripcion: "Descubre las últimas innovaciones en tecnología e gastronomica y su impacto en la comunidad.",
+        fecha: "23 de agosto, 2024",
+        hora: "10:00 - 12:30",
+        lugar: "Colegio Cardenal Silva Henriquez",
+        imagen: "/skibidi-topilet-a-fa-fa.webp",
+        tag: "Feria Tecnico Profesional"
+    },
+    {
+        titulo: "Astro: Revolucionando el Desarrollo Web Moderno",
+        descripcion: "Aprende cómo Astro está transformando la creación de sitios web con su enfoque en rendimiento y simplicidad.",
+        fecha: "22 de julio, 2024",
+        hora: "19:00 - 21:00",
+        lugar: "Transmisión en vivo",
+        imagen: "/ciberseguridad1.webp",
+        tag: "Webinar"
+    },
+    {
+        titulo: "Ecosistema Starlink X: Conectando el Futuro",
+        descripcion: "Explora las sinergias entre la tecnología satelital, IoT y 5G en la nueva era de conectividad global.",
+        fecha: "29 de julio, 2024",
+        hora: "17:00 - 19:00",
+        lugar: "Auditorio Cosmos",
+        imagen: "/Innovación-tecnológica.webp",
+        tag: "Conferencia"
+    }
+];
+---
+
+<Layout title="Eventos y Charlas - Teleco Do Santos">
+    <Header />
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Eventos y Charlas <span class="highlight">Teleco Do Santos</span></h1>
+                <p class="subtitle">Explora el futuro de la tecnologías</p>
+            </div>
+        </section>
+
+        <section id="eventos" class="eventos">
+            <div class="container">
+                <h2 class="section-title">Próximos Eventos</h2>
+                <div class="eventos-grid">
+                    {eventos.map((evento) => (
+                        <article class="evento-card">
+                            <div class="evento-image" style={`background-image: url('${evento.imagen}');`}></div>
+                            <div class="evento-content">
+                                <span class="evento-tag">{evento.tag}</span>
+                                <h3>{evento.titulo}</h3>
+                                <p>{evento.descripcion}</p>
+                                <div class="evento-meta">
+                                    <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> {evento.fecha}</span>
+                                    <span><i class="fas fa-clock" aria-hidden="true"></i> {evento.hora}</span>
+                                    <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {evento.lugar}</span>
+                                </div>
+                                <a href="/inscripcion" class="btn btn-primary">Reserva tu lugar</a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section class="inscripcion">
+            <div class="container">
+                <h2 class="section-title">¿Listo para ser parte del futuro?</h2>
+                <p>No te pierdas nuestros próximos eventos. Regístrate ahora y mantente actualizado.</p>
+                <a href="/newsletter" class="btn btn-primary">Suscríbete a nuestro newsletter</a>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+    /* Aquí puedes incluir los estilos específicos para la página de eventos */
+    /* Por ejemplo: */
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-background.jpg') no-repeat center center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+    }
+
+    .eventos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .evento-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .evento-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .evento-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .evento-content {
+        padding: 1.5rem;
+    }
+
+    .evento-tag {
+        background: var(--color-primary);
+        color: var(--color-bg);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
+
+    .evento-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        opacity: 0.8;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        background: var(--color-primary);
+        color: var(--color-bg);
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        margin-top: 1rem;
+    }
+
+    .btn-primary:hover {
+        background: var(--color-secondary);
+    }
+
+    @media (max-width: 768px) {
+        .eventos-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

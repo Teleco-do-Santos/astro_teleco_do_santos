@@ -1,0 +1,207 @@
+---
+const currentYear = new Date().getFullYear();
+
+const quickLinks = [
+  { name: "Inicio", url: "/" },
+  { name: "Eventos", url: "/eventos" },
+  { name: "Publicaciones", url: "/blogs" },
+  { name: "Sobre Nosotros", url: "/quienes-somos" },
+  { name: "Contacto", url: "/contacto" }
+];
+
+const socialLinks = [
+  { name: "Facebook", icon: "/icons8-facebook-nuevo-48.png", url: "#" },
+  { name: "Twitter", icon: "/icons8-x-50.png", url: "https://x.com/TelecoDoSantos" },
+  { name: "Instagram", icon: "/insta1.png", url: "https://www.instagram.com/teleco_do_santos/" },
+  { name: "LinkedIn", icon: "/icons8-linkedin-48.png", url: "#" }
+];
+---
+
+<footer class="footer bg-dark py-12">
+  <div class="footer__container container grid md:grid-cols-3 gap-8">
+    <div class="footer__content">
+      <img src="/Logo Astrologia Tarot Minimalista Blanco y Negro (1).png" alt="Teleco Do Santos Logo" class="footer__logo mb-4 w-40">
+      <p class="footer__description">Educando sobre tecnologías de seguridad para un futuro más seguro.</p>
+    </div>
+    <div class="footer__links">
+      <h3 class="footer__title text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+      <ul class="footer__list space-y-2">
+        {quickLinks.map((link) => (
+          <li><a href={link.url} class="footer__link hover:text-primary transition-colors">{link.name}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="footer__social">
+      <h3 class="footer__title text-lg font-semibold mb-4">Síguenos</h3>
+      <div class="footer__social-icons flex space-x-4">
+        {socialLinks.map((social) => (
+          <a href={social.url} class="footer__social-link hover:text-primary transition-colors" aria-label={social.name}>
+            <img src={social.icon} alt={social.name} class="w-6 h-6">
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom border-t border-gray-700 mt-8 pt-8 text-center">
+    <p>&copy; {currentYear} Teleco Do Santos. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<style>
+    .footer {
+    background-color: var(--color-bg-dark, #1a1a1a);
+    color: var(--color-text-light, #ffffff);
+    padding: 4rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at top right, rgba(0, 216, 255, 0.1), transparent 50%),
+      radial-gradient(circle at bottom left, rgba(255, 62, 0, 0.1), transparent 50%);
+    z-index: 1;
+  }
+
+  .footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer__content {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .footer__logo {
+    width: 180px;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__description {
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .footer__title {
+    font-size: 1.5rem;
+    color: var(--color-primary, #3b82f6);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .footer__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer__link {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--color-text-light, #ffffff);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .footer__link:hover {
+    color: var(--color-primary, #3b82f6);
+    transform: translateX(5px);
+    opacity: 1;
+  }
+
+  .footer__social-icons {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .footer__social-link img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer__social-link:hover {
+    background-color: var(--color-primary, #3b82f6);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 216, 255, 0.4);
+  }
+
+  .footer__bottom {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer__container {
+      gap: 3rem;
+    }
+
+    .footer__title {
+      font-size: 1.3rem;
+    }
+
+    .footer__logo {
+      width: 150px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer__container {
+      grid-template-columns: 1fr;
+    }
+
+    .footer__content,
+    .footer__links,
+    .footer__social {
+      text-align: center;
+    }
+
+    .footer__social-icons {
+      justify-content: center;
+    }
+  }
+</style>

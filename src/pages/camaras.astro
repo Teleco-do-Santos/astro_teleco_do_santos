@@ -1,0 +1,355 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Instalación de Cámaras de Seguridad y Configuración">
+  <Header />
+  <main class="container">
+    <section class="video-container">
+        <iframe 
+        width="100%" 
+        height="500" 
+        src="https://www.youtube.com/embed/2EIBjIkAcYM?si=dySmtaBmX__huPA1" 
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+      ></iframe>
+    </section>
+
+    <section class="video-description">
+      <h2>Instalación y configuración de cámaras de seguridad</h2>
+      <p>
+        Se presentarán las instrucciones para instalar y configurar una cámara de seguridad, específicamente la cámara de la marca Hikvision, reconocida por sus productos de videovigilancia y su durabilidad. Las cámaras a utilizar provienen del kit "4 Channel HD, Wi-Fi Kit" de la misma marca.
+      </p>
+      
+      <div class="recuadro">
+        <h3>Material</h3>
+        <p>Este kit cuenta con los siguientes materiales:</p>
+        <ul>
+          <li>1 NVR Wi-Fi de 4 canales (Dispositivo especializado en videovigilancia IP para grabar y almacenar video.)</li>
+          <li>4 cámaras tipo bullet de 2 MP.</li>
+          <li>Disco duro preinstalado de 1 TB.</li>
+          <li>Cable de red.</li>
+          <li>Cable HDMI.</li>
+          <li>5 Enchufes de alimentación de 12 voltios.</li>
+        </ul>
+      </div>
+      
+      <div class="recuadro">
+        <h3>Instrucciones</h3>
+        <ol>
+          <li>Conexión del NVR y las cámaras: Conecta el NVR y las cámaras a sus respectivos enchufes de alimentación, luego conecta el NVR a un monitor o televisor. (Para mejor uso de las cámaras, conecta el NVR al internet vía cable ethernet, este viene con el kit).</li>
+          <li>Encendido del NVR: Enciende el NVR y espera a que inicie completamente. El software del NVR se abrirá automáticamente.</li>
+          <li>Configuración inicial: Al iniciar el software se abrirá una pestaña con opciones básicas, selecciona el idioma preferido, configura la fecha y la hora y elige los dispositivos a usar.</li>
+          <li>Prueba del sistema: Realiza una prueba para asegurarte de que las cámaras están grabando y que puedes acceder a las imágenes en tiempo real a través del monitor.</li>
+          <li>Finalización: Guarda todos los cambios realizados y asegúrate de que el sistema esté funcionando correctamente. Revisa periódicamente las grabaciones y ajusta la configuración según sea necesario.</li>
+        </ol>
+      </div>
+      
+      <p>
+        Hasta ese punto, todo funcionará bajo parámetros predeterminados; las cámaras ya estarán activas, estarán con el sensor de movimiento activado y grabando automáticamente. Estos parámetros predeterminados siguen siendo muy básicos y limitan mucho el uso de las cámaras, estos parámetros se pueden modificar dentro de la configuración avanzada.
+      </p>
+      
+      <div class="recuadro">
+        <h3>Configuración avanzada</h3>
+        <ol>
+          <li>Acceso a la configuración avanzada: Para entrar a la configuración necesitarás hacer uso de la clave de administrador, esta se encuentra en el reverso de la caja. Una vez se use la contraseña, el mismo software te dará la opción de cambiar la contraseña y elegir un nombre de usuario.</li>
+          <li>Configuración de parámetros: Para entrar a esta sección deberás hacer clic derecho en la pantalla y apretar la opción menú general. Dentro del menú habrá muchas especificaciones donde se puede configurar el sensor de movimiento, calidad de las cámaras, grabación de video, entre otros.</li>
+          <li>Aplicación: Todas las cámaras de Hikvision se pueden usar con la aplicación "Hik-connect". Para hacer esto, primero debes descargar la aplicación desde la Play Store o App Store. Luego, regístrate creando una cuenta utilizando tu número de teléfono o correo electrónico, e inicia sesión con tus credenciales. Una vez dentro, selecciona la opción para agregar dispositivos, ya sea escaneando el código QR que aparece en tu NVR o DVR, o ingresando manualmente el número de serie del dispositivo. Configura las opciones de visualización y notificaciones según tus preferencias, habilitando alertas de movimiento y ajustando la calidad de video. Finalmente, asegúrate de que tu dispositivo esté conectado a Internet para poder monitorear tus cámaras en tiempo real, reproducir grabaciones y recibir notificaciones de eventos desde cualquier lugar.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="latest-posts">
+      <h2>Últimas Publicaciones</h2>
+      <div class="post-list">
+        <div class="post-item">
+          <a href="/leer-mas">
+            <img src="/src/python1.jpg" alt="Thumbnail Post 1">
+          </a>
+          <div class="post-content">
+            <h3>Python</h3>
+            <p>Aprendiendo Python en una hora por el canal de youtube de "Hola Mundo" </p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/technical-security-final">
+            <img src="/logot.png" alt="Thumbnail Post 2">
+          </a>
+          <div class="post-content">
+            <h3>Technical Security </h3>
+            <p>Aprenderás junto al Equipo de Technical Security hacer una casa domótica</p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/telefonos">
+            <img src="/ciberseguridad1.webp" alt="Thumbnail Post 3">
+          </a>
+          <div class="post-content">
+            <h3>Seguridad En Dispositivos Móviles</h3>
+            <p>Aprende a proteger tu dispositivo móvil y evitar que te roben tu información</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-text-light: #a0a0a0;
+  --color-primary: #00ffff;
+  --color-secondary: #ff00ff;
+  --color-accent: #8b5cf6;
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  background-image: linear-gradient(to bottom, #000000, #1a1a2e);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.video-container {
+  margin: 60px auto;
+  max-width: 90%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.video-container iframe {
+  display: block;
+  width: 100%;
+  height: 500px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    margin: 40px auto;
+  }
+
+  .video-container iframe {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .video-container {
+    max-width: 1100px;
+  }
+}
+
+.video-description {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 60px;
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+  margin: 60px auto;
+  max-width: 1000px;
+  backdrop-filter: blur(10px);
+}
+
+.video-description h2 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.video-description h3 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-secondary);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.video-description p {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.recuadro {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recuadro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.Consideraciones-Importantes {
+  background-color: rgba(255, 0, 255, 0.1);
+  border: 2px solid var(--color-secondary);
+}
+
+.Consideraciones-Importantes h2 {
+  color: var(--color-secondary);
+}
+
+.latest-posts {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 80px 40px;
+  border-radius: 24px;
+  margin: 80px auto;
+  max-width: 1200px;
+}
+
+.latest-posts h2 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.post-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+.post-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-item:hover img {
+  transform: scale(1.1);
+}
+
+.post-content {
+  padding: 30px;
+}
+
+.post-content h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+}
+
+.post-content p {
+  font-size: 1rem;
+  color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+  .video-description {
+    padding: 40px 20px;
+  }
+
+  .video-description h2 {
+    font-size: 2.5rem;
+  }
+
+  .video-description h3 {
+    font-size: 1.8rem;
+  }
+
+  .video-description p {
+    font-size: 1rem;
+  }
+
+  .latest-posts {
+    padding: 60px 20px;
+  }
+
+  .latest-posts h2 {
+    font-size: 2.5rem;
+  }
+
+  .post-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .video-container {
+    max-width: 1100px;
+  }
+
+  .video-description {
+    padding: 80px;
+  }
+
+  .video-description h2 {
+    font-size: 3.5rem;
+  }
+
+  .video-description h3 {
+    font-size: 2.2rem;
+  }
+
+  .video-description p {
+    font-size: 1.2rem;
+  }
+
+  .latest-posts {
+    padding: 100px 60px;
+  }
+}
+</style>

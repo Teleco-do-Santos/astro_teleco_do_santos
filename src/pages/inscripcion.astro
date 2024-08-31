@@ -1,0 +1,455 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const events = [
+            {
+                id: 'conferencia-ia',
+                name: 'Conferencia de IA',
+                date: '2024-09-15',
+                description: 'Explora las últimas tendencias en Inteligencia Artificial.'
+            },
+            {
+                id: 'hackathon-5g',
+                name: 'Hackathon 5G',
+                date: '2024-10-01',
+                description: 'Desarrolla soluciones innovadoras utilizando tecnología 5G.'
+            },
+            {
+                id: 'taller-blockchain',
+                name: 'Taller de Blockchain',
+                date: '2024-10-20',
+                description: 'Aprende los fundamentos de la tecnología blockchain y sus aplicaciones.'
+            }
+        ];
+
+---
+
+
+<Layout title="Inscripción | Teleco do Santos">
+    <Header />
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Inscríbete a nuestros eventos</h1>
+                <p>Sé parte de la revolución tecnológica</p>
+            </div>
+        </section>
+
+        <section class="inscription-section">
+            <div class="container">
+                <div class="inscription-grid">
+                    <div class="inscription-form">
+                        <h2>Formulario de Inscripción</h2>
+                        <form id="inscriptionForm">
+                            <div class="form-group">
+                                <label for="name">Nombre completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event">Evento</label>
+                                <select id="event" name="event" required>
+                                    <option value="">Selecciona un evento</option>
+                                    <option value="ftp">Feria Tecnico Profesional</option>
+                                    <option value="hackathon-5g">Hackathon 5G</option>
+                                    <option value="taller-blockchain">Taller de Blockchain</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Inscribirse</button>
+                        </form>
+                    </div>
+                    <div class="event-info">
+                        <h2>Próximos Eventos</h2>
+                        <div class="event-list" id="eventList">
+                            {events.map((event) => (
+                                <div class="event-card">
+                                    <h3>{event.name}</h3>
+                                    <p class="event-date">Fecha: {event.date}</p>
+                                    <p>{event.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+
+    <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    
+    <script is:inline>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("1xGTpvfrUjRpylBDs");
+        })();
+    
+        // Form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('inscriptionForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let name = document.getElementById('name').value;
+                let email = document.getElementById('email').value;
+                let phone = document.getElementById('phone').value;
+                let event = document.getElementById('event').value;
+    
+                if (name && email && phone && event) {
+                    // Prepare email parameters
+                    var templateParams = {
+                        to_name: "Administrador",
+                        from_name: name,
+                        message: `
+                            Nueva inscripción:
+                            Nombre: ${name}
+                            Email: ${email}
+                            Teléfono: ${phone}
+                            Evento: ${event}
+                        `,
+                        reply_to: email
+                    };
+    
+                    // Send email using EmailJS
+                    window.emailjs.send('service_bwqob7v', 'template_airpc9f', templateParams)
+                        .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            alert('¡Gracias por tu inscripción! Te enviaremos más detalles por correo electrónico.');
+                            document.getElementById('inscriptionForm').reset();
+                        }, function(error) {
+                            console.log('FAILED...', error);
+                            alert('Lo siento, hubo un error al procesar tu inscripción. Por favor, intenta de nuevo más tarde.');
+                        });
+                } else {
+                    alert('Por favor, completa todos los campos.');
+                }
+            });
+        });
+    </script>
+    
+</Layout>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+     :root {
+        --color-bg: #050505;
+        --color-text: #ffffff;
+        --color-primary: #00ffff;
+        --color-secondary: #ff00ff;
+        --color-accent: #8b5cf6;
+        --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        --font-main: 'Inter', sans-serif;
+        --font-display: 'Orbitron', sans-serif;
+    }
+
+    body {
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: var(--font-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .hero {
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/cyber.webp') no-repeat center center;
+        background-size: cover;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 25%),
+            radial-gradient(circle at 80% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 25%);
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-family: var(--font-display);
+        font-size: 4rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+        animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .inscription-section {
+        padding: 5rem 0;
+        background-color: var(--color-bg);
+        position: relative;
+    }
+
+    .inscription-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/609.jpg') repeat;
+        opacity: 0.05;
+        z-index: 0;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    .inscription-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .event-info {
+        background: rgba(255,255,255,0.05);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .event-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .event-card {
+        background: rgba(255,255,255,0.03);
+        border-radius: 10px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .event-card h3 {
+        font-family: var(--font-display);
+        color: var(--color-secondary);
+        margin-bottom: 0.5rem;
+    }
+
+    .event-date {
+        font-style: italic;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+    .inscription-form, .events-list {
+        background: rgba(255,255,255,0.05);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    h2 {
+        font-family: var(--font-display);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--color-primary);
+        text-shadow: 0 0 10px var(--color-primary);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary);
+        font-weight: 600;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.05);
+        color: var(--color-text);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+    }
+
+    .btn-primary {
+        background: var(--gradient-primary);
+        color: var(--color-bg);
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: block;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .event-card {
+        background: rgba(255,255,255,0.03);
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .event-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.1);
+    }
+
+    .event-card h3 {
+        font-family: var(--font-display);
+        color: var(--color-secondary);
+        margin-bottom: 0.5rem;
+    }
+
+    .event-date {
+        font-style: italic;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--color-primary), 0 0 20px var(--color-primary), 0 0 35px var(--color-primary), 0 0 40px var(--color-primary), 0 0 50px var(--color-primary);
+        }
+        to {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--color-primary), 0 0 40px var(--color-primary), 0 0 70px var(--color-primary), 0 0 80px var(--color-primary), 0 0 100px var(--color-primary);
+        }
+    }
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .inscription-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .inscription-form, .event-info {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, select, .btn-primary {
+            padding: 0.5rem 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .event-card {
+            padding: 1rem;
+        }
+
+        .event-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .event-date, .event-card p {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero p {
+            font-size: 0.9rem;
+        }
+
+        .inscription-section {
+            padding: 3rem 0;
+        }
+
+        .btn-primary {
+            font-size: 1rem;
+        }
+    }
+</style>

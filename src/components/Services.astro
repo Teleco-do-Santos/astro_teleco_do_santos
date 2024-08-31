@@ -1,0 +1,188 @@
+---
+const services = [
+  {
+    title: "Cámaras de Seguridad",
+    description: "Aprende sobre instalación y uso de cámaras de seguridad",
+    image: "/Hikvision-Logo.jpg",
+    link: "/camaras"
+  },
+  {
+    title: "Seguridad del Celular",
+    description: "Descubre métodos efectivos para proteger tus dispositivos",
+    image: "/ciberseguridad1.webp",
+    link: "/telefonos"
+  },
+  {
+    title: "Sosafe",
+    description: "Guía completa de instalación y uso de la app Sosafe",
+    image: "/sofafe.png",
+    link: "/sosafe"
+  }
+];
+---
+
+<section class="services-section" id="services">
+  <div class="container">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="services-grid">
+      {services.map((service) => (
+        <article class="service-card">
+          <a href={service.link} class="service-link">
+            <div class="service-image-container">
+              <img src={service.image} alt={service.title} class="service-image">
+            </div>
+            <div class="service-content">
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-description">{service.description}</p>
+              <span class="service-cta">Leer Más <i class="fas fa-arrow-right"></i></span>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    background-color: #0f0f0f;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(29, 78, 216, 0.15), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.1), transparent 50%);
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #3b82f6, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+
+  .service-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .service-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .service-image-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+  .service-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .service-image {
+    transform: scale(1.1);
+  }
+
+  .service-content {
+    padding: 30px;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+
+  .service-description {
+    font-size: 1rem;
+    color: #a0aec0;
+    margin-bottom: 20px;
+  }
+
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #3b82f6;
+    transition: color 0.3s ease;
+  }
+
+  .service-cta i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .service-cta {
+    color: #ef4444;
+  }
+
+  .service-card:hover .service-cta i {
+    transform: translateX(5px);
+  }
+
+  @media (max-width: 768px) {
+    .services-section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .services-grid {
+      gap: 30px;
+    }
+
+    .service-content {
+      padding: 20px;
+    }
+  }
+</style>

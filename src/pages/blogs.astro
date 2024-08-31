@@ -1,0 +1,383 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Aquí podrías importar o definir tus posts de blog
+const blogPosts = [
+  {
+    title: "Tele-transporte: Innovación en Transporte",
+    excerpt: "Tele-transport es un proyecto innovador diseñado para mejorar la experiencia de los usuarios del transporte público.",
+    image: "/buses11.jpg",
+    url: "/teletransport"
+  },
+  {
+    title: "Paradero Sensorial: Innovación en Seguridad y Transporte",
+    excerpt: "Paradero Sensorial es una iniciativa de L.Security, un grupo de estudiantes de cuarto medio que se ha enfocado en mejorar la seguridad en el transporte público",
+    image: "/paraderos.png",
+    url: "/post-lsecurity"
+  },
+  // ... más posts
+
+  {
+    title: "Python desde cero en una hora para principiantes",
+    excerpt: "En este post te enseñaremos los conceptos básicos de Python, desde la instalación del intérprete hasta la creación de un programas simples.",
+    image: "/python1.jpg",
+    url: "/python"
+  },
+
+  {
+    title: "Qué es y cómo funciona Sosafe",
+    excerpt: "Aprenderás cómo instalar y usar Sosafe",
+    image: "/sofafe.png",
+    url: "/sosafe"
+  },
+
+  {
+    title: "Camaras De Seguridad",
+    excerpt: "Instalacion de camaras de seguridad y configuracion de la Camaras",
+    image: "/Hikvision-Logo.jpg",
+    url: "/camaras"
+  },
+
+
+  {
+    title: "Trucos de VSCode y Extensiones",
+    excerpt: "Aprende a usar VSCode y sus extensiones para ser mas productivo",
+    image: "/7-extensiones-de-VSCode.webp",
+    url: "/vscode"
+  },
+  {
+    title: "Seguridad En Dispositivos Mobiles",
+    excerpt: "Aprende a proteger tu dispositivo movil y evitar que te roben tu informacion",
+    image: "/ciberseguridad1.webp",
+    url: "/telefonos"
+  },
+
+];
+---
+
+<Layout title="Blog | Teleco do Santos">
+  <Header />
+  <main>
+    <section class="page-title-section">
+      <div class="page-title-wrapper">
+        <h1 class="page-title">Blog</h1>
+        <p class="page-subtitle">Explora nuestros artículos sobre seguridad tecnológica</p>
+      </div>
+      <div class="page-title-decoration"></div>
+    </section>
+
+    <section class="blog-content">
+      <div class="container">
+        <div class="post-grid">
+          {blogPosts.map((post) => (
+            <article class="post-card">
+              <img src={post.image} alt={post.title} class="post-img">
+              <div class="post-content">
+                <h2 class="post-title">{post.title}</h2>
+                <p class="post-excerpt">{post.excerpt}</p>
+                <a href={post.url} class="btn-primary">Leer más</a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <nav class="pagination-container">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #050505;
+  --color-text: #ffffff;
+  --color-text-light: #a0a0a0;
+  --color-primary: #00ffff;
+  --color-secondary: #ff00ff;
+  --color-accent: #8b5cf6;
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Estilos del título de la página */
+.page-title-section {
+  position: relative;
+  padding: 6rem 0 4rem;
+  margin-bottom: 4rem;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+  overflow: hidden;
+}
+
+.page-title-wrapper {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  border-radius: 2px;
+}
+
+.page-subtitle {
+  font-size: 1.4rem;
+  color: var(--color-text-light);
+  margin-top: 1.5rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+/* Estilos de la cuadrícula de posts */
+.blog-content {
+  padding: 4rem 0;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.post-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+.post-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.post-card:hover .post-img {
+  transform: scale(1.1);
+}
+
+.post-content {
+  padding: 2rem;
+}
+
+.post-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+.post-card:hover .post-title {
+  color: var(--color-accent);
+}
+
+.post-excerpt {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+  border: none;
+  border-radius: 30px;
+  color: var(--color-bg);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+}
+
+/* Estilos de paginación */
+.pagination-container {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-item {
+  margin: 0 0.5rem;
+}
+
+.page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.page-item.active .page-link,
+.page-link:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .post-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .page-title {
+    font-size: 3rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .post-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .blog-content {
+    padding: 3rem 0;
+  }
+
+  .post-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .post-card {
+    border-radius: 15px;
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .post-title {
+    font-size: 1.3rem;
+  }
+
+  .post-excerpt {
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .pagination-container {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .page-link {
+    min-width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.9rem;
+  }
+}
+</style>

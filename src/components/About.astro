@@ -1,0 +1,200 @@
+---
+// Puedes agregar cualquier lógica de Astro aquí si es necesario
+---
+
+<section class="about section py-20">
+    <div class="about__container container grid md:grid-cols-2 gap-12 items-center">
+        <div class="about__content">
+            <h2 class="section__title text-3xl font-bold mb-6">Sobre Nosotros</h2>
+            <p class="about__description mb-8">Teleco Do Santos es un grupo de estudiantes de cuarto medio en telecomunicaciones que lanza el proyecto "Security Teach". Nuestro objetivo es educar a la comunidad local sobre tecnologías de seguridad, incluyendo cámaras y aplicaciones como "Sosafe".</p>
+            <a href="/quienes-somos" class="btn btn--outline">Conoce más</a>
+        </div>
+        <div class="about__image">
+            <img src="/grupotelco3.png" alt="Equipo Teleco Do Santos" class="about__img rounded-lg shadow-2xl">
+        </div>
+    </div>
+</section>
+
+<style>
+    .about {
+        padding: 5rem 0;
+        background-color: var(--color-bg, #ffffff);
+        color: var(--color-text, #333333);
+    }
+
+    .about__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: center;
+    }
+
+    .about__image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .about__image::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 216, 255, 0.2) 0%,
+            rgba(255, 62, 0, 0.2) 50%,
+            rgba(255, 183, 0, 0.2) 100%
+        );
+        z-index: 1;
+        opacity: 0;
+        animation: pulse 4s ease-in-out infinite alternate;
+    }
+    
+    .about__image:hover {
+        transform: scale(1.05) translateY(-10px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .about__image:hover::before {
+        opacity: 1;
+    }
+
+    .about__img {
+        width: 100%;
+        height: auto;
+        display: block;
+        animation: zoom 15s ease-in-out infinite alternate;
+    }
+
+
+    .about__image:hover .about__img {
+        transform: scale(1.0);
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes zoom {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(1.1);
+        }
+    }
+
+    @media (min-width: 768px) {
+        .about__container {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .about__image {
+            margin-bottom: 2rem;
+        }
+    
+    
+
+    .section__title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        color: var(--color-primary, #3b82f6);
+    }
+
+    .about__description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn--outline {
+        border: 2px solid var(--color-primary, #3b82f6);
+        color: var(--color-primary, #3b82f6);
+    }
+
+    .btn--outline:hover {
+        background-color: var(--color-primary, #3b82f6);
+        color: var(--color-bg, #ffffff);
+    }
+
+    .about__img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s ease;
+    }
+
+    .about__img:hover {
+        transform: scale(1.05);
+    }
+
+    
+
+    @media (max-width: 768px) {
+        .about__container {
+            grid-template-columns: 1fr;
+        }
+
+        .about__content {
+            order: 2;
+        }
+
+        .about__image {
+            order: 1;
+            margin-bottom: 2rem;
+        }
+
+        .section__title {
+            font-size: 1.75rem;
+        }
+
+        .about__description {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<style>
+    @media (prefers-reduced-motion: reduce) {
+        .about__image, .about__image::before, .about__img {
+            animation: none;
+        }
+    }
+</style>

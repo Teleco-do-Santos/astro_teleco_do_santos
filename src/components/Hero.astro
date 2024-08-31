@@ -1,0 +1,208 @@
+---
+---
+
+<section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">Teleco Do Santos <span class="highlight">Security Tech</span></h1>
+      <p class="hero-description">Educando a la comunidad sobre tecnologías de seguridad modernas</p>
+      <div class="buttons">
+        <a href="https://github.com/Teleco-do-Santos/Teleco-Do-Santos-Web" class="btn btn-primary" target="_blank">
+          <span><i class="fab fa-github"></i> GitHub</span>
+        </a>
+        <a href="/quienes-somos" class="btn btn-secondary">
+          <span>¿Quiénes Somos?</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="particles-js"></div>
+  </section>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+  
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+        url("/fondo.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at top right, rgba(0, 216, 255, 0.2), transparent 50%),
+        radial-gradient(circle at bottom left, rgba(255, 62, 0, 0.2), transparent 50%);
+      z-index: 1;
+    }
+  
+    .hero-content {
+      max-width: 1000px;
+      text-align: center;
+      position: relative;
+      z-index: 3;
+    }
+  
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1.2;
+      text-shadow: 0 0 20px rgba(0, 216, 255, 0.7);
+    }
+  
+    .highlight {
+      background: linear-gradient(45deg, #00d8ff, #ff3e00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+    }
+  
+    .hero-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+  
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+  
+    .btn {
+      font-family: 'Orbitron', sans-serif;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
+  
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00d8ff, #ff3e00);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+  
+    .btn-primary {
+      background-color: rgba(0, 216, 255, 0.2);
+      color: #fff;
+      border-color: #00d8ff;
+    }
+  
+    .btn-secondary {
+      background-color: rgba(255, 62, 0, 0.2);
+      color: #fff;
+      border-color: #ff3e00;
+    }
+  
+    .btn:hover::before {
+      opacity: 1;
+    }
+  
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+  
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+  
+    .hero-particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+  
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+  
+      .hero-description {
+        font-size: 1rem;
+      }
+  
+      .buttons {
+        flex-direction: column;
+      }
+  
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+  
+  <script>
+    declare global {
+  function particlesJS(id: string, config: any): void;
+}
+    import 'particles.js/particles.js';
+  
+    document.addEventListener('astro:page-load', () => {
+      
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.5, random: false },
+          size: { value: 3, random: true },
+          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+          modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+        },
+        retina_detect: true
+      });
+      
+      
+    });
+  </script>

@@ -1,0 +1,371 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Seguridad en Dispositivos Móviles">
+    <Header />
+  <main>
+    <section class="video-container">
+      <img src="/ciberseguridad1200x630.original.jpg" alt="Imagen de ciberseguridad">
+    </section>
+    <section class="video-description">
+      <div class="introduccion">
+        <h2>La Importancia de la Seguridad en Dispositivos Móviles</h2>
+        <p>En la era digital actual, la seguridad de los teléfonos inteligentes es fundamental, ya que estos dispositivos almacenan información personal, financiera y profesional. Protegerlos de amenazas como virus, malware y accesos no autorizados es esencial para salvaguardar la privacidad de los datos sensibles.</p>
+      </div>
+      
+      <div class="recuadro description-item">
+        <h3>1. Activar el Cifrado de Datos</h3>
+        <p>Proteger tu información personal en tu dispositivo móvil es esencial. Aquí te mostramos cómo activar el cifrado de datos en dispositivos iOS, Android y Xiaomi.</p>
+      </div>
+      
+      <div class="recuadro description-item">
+        <h3>iOS (iPhone/iPad)</h3>
+        <p>
+          Abre la App de Ajustes: Busca el icono de "Ajustes" (una rueda dentada) y tócalo para abrirla.<br>
+          Configura un Código de Acceso: Ve a "Face ID y código" (o "Touch ID y código") en la lista de opciones. Si no tienes un código de acceso configurado, establece uno. Esto activará el cifrado automáticamente para proteger tus datos.
+        </p>
+      </div>
+      
+      <div class="recuadro description-item">
+        <h3>Android</h3>
+        <p>
+          Abre la App de Configuración: Busca el icono de "Configuración" y tócalo para abrirla.<br>
+          Accede a Seguridad: Busca y toca la opción "Seguridad" o "Seguridad y ubicación".<br>
+          Cifrado del Dispositivo: Busca y selecciona "Cifrado y credenciales" o simplemente "Cifrado". Toca la opción "Cifrar dispositivo" y sigue las instrucciones en pantalla.
+        </p>
+      </div>
+      
+      <div class="recuadro description-item">
+        <h3>Xiaomi</h3>
+        <p>
+          Abre la App de Configuración: Busca el icono de "Configuración" y tócalo para abrirla.<br>
+          Ve a Seguridad: Busca y toca la opción "Seguridad" y luego "Cifrado".<br>
+          Cifrar el Dispositivo: Busca la opción "Cifrar dispositivo" y tócala para iniciar el proceso.
+        </p>
+      </div>
+      
+      
+      
+      <div class="recuadro Consideraciones-Importantes">
+        <h2>Consideraciones Importantes</h2>
+        <ul>
+          <li><strong>Conexión a Internet:</strong> Asegúrate de que tu dispositivo esté conectado a Internet durante estos procesos de activación y configuración.</li>
+          <li><strong>Respaldo de Datos:</strong> Antes de proceder con el cifrado o el borrado remoto, es recomendable hacer una copia de seguridad de tus datos importantes.</li>
+          <li><strong>Tiempo de Proceso:</strong> Ten en cuenta que el cifrado y el borrado remoto pueden tardar un tiempo, dependiendo de la cantidad de datos almacenados en tu dispositivo.</li>
+        </ul>
+      
+        <h2>¡Protege tu Información Personal!</h2>
+        <p>
+          Tomarte unos minutos para activar estas funciones de seguridad puede marcar una gran diferencia en la protección de tu información personal. ¡No esperes más y asegúrate de que solo tú tengas acceso a tus datos valiosos!
+        </p>
+      </div>
+    </section>
+   
+    <section class="latest-posts">
+      <h2>Últimas Publicaciones</h2>
+      <div class="post-list">
+        <div class="post-item">
+          <a href="/leer-mas">
+            <img src="/python1.jpg" alt="Thumbnail Post 1">
+          </a>
+          <div class="post-content">
+            <h3>Python desde cero en una hora para principiantes!</h3>
+            <p>Aprenderás todo lo que necesitas para entender la programación básica en Python</p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/camaras">
+            <img src="/Hikvision-Logo.jpg" alt="Thumbnail Post 2">
+          </a>
+          <div class="post-content">
+            <h3>Cámaras De Seguridad</h3>
+            <p>Aprenderás cómo instalar y configurar las cámaras de seguridad</p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/technical-security-final">
+            <img src="/logot.png" alt="Thumbnail Post 3">
+          </a>
+          <div class="post-content">
+            <h3>Casa domótica de Technical Security</h3>
+            <p>Aprende del Proyecto del equipo "Technical Security"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-text-light: #a0a0a0;
+  --color-primary: #00ffff;
+  --color-secondary: #ff00ff;
+  --color-accent: #8b5cf6;
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  background-image: linear-gradient(to bottom, #000000, #1a1a2e);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.video-container {
+  margin: 30px auto;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.video-container img,
+.video-container iframe {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.video-description {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  margin: 30px auto;
+  max-width: 100%;
+  backdrop-filter: blur(5px);
+}
+
+.video-description h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.video-description h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.video-description p {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin-bottom: 1rem;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.recuadro {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recuadro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+}
+
+.Consideraciones-Importantes {
+  background-color: rgba(255, 0, 255, 0.1);
+  border: 2px solid var(--color-secondary);
+}
+
+.latest-posts {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 40px 20px;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 100%;
+}
+
+.latest-posts h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.post-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.post-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.2);
+}
+
+.post-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-content {
+  padding: 20px;
+}
+
+.post-content h3 {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+.post-content p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .video-container {
+    margin: 60px auto;
+    max-width: 90%;
+    border-radius: 24px;
+  }
+
+  .video-description {
+    padding: 60px;
+    border-radius: 24px;
+    margin: 60px auto;
+  }
+
+  .video-description h2 {
+    font-size: 3rem;
+  }
+
+  .video-description h3 {
+    font-size: 2rem;
+  }
+
+  .video-description p {
+    font-size: 1.1rem;
+  }
+
+  .latest-posts {
+    padding: 80px 40px;
+    border-radius: 24px;
+    margin: 80px auto;
+  }
+
+  .latest-posts h2 {
+    font-size: 3rem;
+    margin-bottom: 60px;
+  }
+
+  .post-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+
+  .post-item img {
+    height: 200px;
+  }
+
+  .post-content {
+    padding: 30px;
+  }
+
+  .post-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .post-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .video-container {
+    max-width: 1100px;
+  }
+
+  .video-description {
+    padding: 80px;
+    max-width: 1000px;
+  }
+
+  .video-description h2 {
+    font-size: 3.5rem;
+  }
+
+  .video-description h3 {
+    font-size: 2.2rem;
+  }
+
+  .video-description p {
+    font-size: 1.2rem;
+  }
+
+  .latest-posts {
+    padding: 100px 60px;
+    max-width: 1200px;
+  }
+}
+
+</style>

@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Teleco Do Santos Security Teach - Educando sobre tecnologías de seguridad modernas">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/Logo Astrologia Tarot Minimalista Blanco y Negro (1).png" />
+		<link rel="apple-touch-icon" href="/Logo Astrologia Tarot Minimalista Blanco y Negro (1).png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="bg-stars">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-bg: #000000;
+		--color-text: #ffffff;
+		--color-primary: #3b82f6;
+		--color-secondary: #ef4444;
+		--transition: all 0.3s ease;
+	}
+
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+		background-color: var(--color-bg);
+		color: var(--color-text);
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.bg-stars {
+		background-image: 
+			radial-gradient(circle at top right, rgba(29, 78, 216, 0.15), transparent 50%),
+			radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.1), transparent 50%);
+		background-attachment: fixed;
+	}
+
+	main {
+		flex: 1;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+</style>

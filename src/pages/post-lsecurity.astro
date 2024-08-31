@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';  // Asumiendo que tienes un archivo de estilos globales
+---
+
+<Layout title="L.Security" >
+  <Header />
+  <main>
+    <div class="container">
+      <div class="image-container">
+        <img src="#" alt="Imagen inicial" />
+      </div>
+      <section class="hero">
+        <div class="container">
+          <h1>L.Security</h1>
+          <p class="tagline">"Iluminando el camino hacia un transporte público más seguro"</p>
+        </div>
+      </section>
+
+      <section class="project">
+        <div class="container">
+          <div class="project-content">
+            <div class="project-text">
+              <h2>Paradero Sensorial</h2>
+              <p>"L.Security" es un grupo de estudiantes de cuarto medio que vio una oportunidad y decidió enfocarse en la seguridad y el transporte, específicamente en el lugar donde se espera el transporte. Este equipo se dedicó a crear un modelo de paradero de micro con un sistema de luz auto sustentable, que funcionará con energía renovable.</p>
+            </div>
+            <div class="project-image">
+              <img src="../flopro.png" alt="Prototipo del Paradero Sensorial">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="team">
+        <div class="container">
+          <h2>Nuestro Equipo</h2>
+          <div class="team-members">
+            <div class="team-member">
+              <h3>Florencia Gallardo</h3>
+              <p>Líder del equipo</p>
+            </div>
+            <div class="team-member">
+              <h3>Vicente Figueroa</h3>
+              <p>Diseñador</p>
+            </div>
+            <div class="team-member">
+              <h3>Antonella Olivares</h3>
+              <p>Traductora</p>
+            </div>
+            <div class="team-member">
+              <h3>Benjamin Navarrete</h3>
+              <p>Vocero</p>
+            </div>
+            <div class="team-member">
+              <h3>Nicolas Angulo</h3>
+              <p>Diseñador</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="details">
+        <div class="container">
+          <h2>Detalles del Proyecto</h2>
+          <div class="details-content">
+            <div class="details-text">
+              <p>Nuestro proyecto "Paradero sensorial" busca brindar una mayor seguridad a la comunidad, centrándose en las personas que suelen esperar el transporte público a altas horas de la noche. Muchas veces, estos individuos se encuentran en zonas poco iluminadas y aisladas, lo que los hace vulnerables ante posibles amenazas.</p>
+              <p>Nuestro proyecto consiste en instalar luminarias de alta eficiencia energética en las paradas de autobús y en las calles aledañas, dando así visibilidad a dichas personas de manera que puedan ver su entorno y divisar a potenciales peligros con mayor anticipación.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="latest-posts">
+        <h2>Últimas Publicaciones</h2>
+        <div class="post-list">
+          <div class="post-item">
+            <a href="/trucosvscode">
+              <img src="/7-extensiones-de-VSCode.webp" alt="Thumbnail Post 1">
+            </a>
+            <div class="post-content">
+              <h3>Trucos de VSCode y Extensiones</h3>
+              <p>Aprende trucos de VSCode y extensiones que te harán la vida más fácil</p>
+            </div>
+          </div>
+          <div class="post-item">
+            <a href="/leer-mas">
+              <img src="
+              /python1.jpg" alt="Thumbnail Post 2">
+            </a>
+            <div class="post-content">
+              <h3>Python desde cero en una hora para principiantes!</h3>
+              <p>Aprenderás todo lo que necesitas para entender la programación básica en Python</p>
+            </div>
+          </div>
+          <div class="post-item">
+            <a href="/telefonos">
+              <img src="/ciberseguridad1.webp" alt="Thumbnail Post 3">
+            </a>
+            <div class="post-content">
+              <h3>Seguridad En Dispositivos Móviles</h3>
+              <p>Aprende a proteger tu dispositivo móvil y evitar que te roben tu información</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* General styles */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  line-height: 1.6;
+  background-image: linear-gradient(to bottom, #000000, #1a1a2e);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #00ffff;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+.hero .tagline {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+/* Project section */
+.project {
+  padding: 80px 0;
+}
+
+.project-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.project-text {
+  flex: 1;
+}
+
+.project-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00ffff;
+}
+
+.project-image {
+  flex: 1;
+}
+
+.project-image img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Team section */
+.team {
+  padding: 80px 0;
+}
+
+.team h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #00ffff;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.team-member {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+}
+
+.team-member h3 {
+  margin-bottom: 10px;
+}
+
+/* Details section */
+.details {
+  padding: 80px 0;
+}
+
+.details h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #00ffff;
+}
+
+.details-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Latest posts section */
+.latest-posts {
+  padding: 80px 0;
+}
+
+.latest-posts h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #00ffff;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.post-item {
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.post-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 20px;
+}
+
+.post-content h3 {
+  margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .project-content {
+    flex-direction: column;
+  }
+
+  .team-member {
+    width: calc(50% - 15px);
+  }
+
+  .post-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero .tagline {
+    font-size: 1.2rem;
+  }
+
+  .team-member {
+    width: 100%;
+  }
+}
+</style>
+

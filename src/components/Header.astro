@@ -1,0 +1,223 @@
+---
+// Puedes agregar cualquier lógica de Astro aquí si es necesario
+---
+
+<header class="header">
+    <div class="header-container">
+      <nav class="nav">
+        <div class="nav__logo-menu">
+          <a href="/" class="nav__logo">
+            <span class="logo-text">Teleco Do Santos</span>
+           
+          </a>
+          <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span class="hamburger"></span>
+          </button>
+        </div>
+        <ul class="nav__list">
+          <li class="nav__item"><a href="/" class="nav__link">Inicio</a></li>
+          <li class="nav__item"><a href="/eventos" class="nav__link">eventos</a></li>
+          
+          <li class="nav__item"><a href="/blogs" class="nav__link">Publicaciones</a></li>
+          <li class="nav__item"><a href="/quienes-somos" class="nav__link">Sobre Nosotros</a></li>
+          <li class="nav__item"><a href="/contacto" class="nav__link">Contacto</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(13, 13, 13, 0.2);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  }
+
+  .nav__logo-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav__logo {
+    text-decoration: none;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #3b82f6, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+  }
+
+  .logo-text:hover {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+
+  .nav__list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav__link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary, #3b82f6);
+    transition: width 0.3s ease;
+  }
+
+  .nav__link:hover {
+    color: var(--color-primary, #3b82f6);
+  }
+
+  .nav__link:hover::after {
+    width: 100%;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+
+  .hamburger::before {
+    top: -6px;
+  }
+
+  .hamburger::after {
+    bottom: -6px;
+  }
+
+  .mobile-menu-btn.active .hamburger {
+    background-color: transparent;
+  }
+
+  .mobile-menu-btn.active .hamburger::before {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+
+  .mobile-menu-btn.active .hamburger::after {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      padding: 1rem 0;
+    }
+
+    .nav__logo-menu {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .nav__list {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+
+    .nav__list.show {
+      display: flex;
+    }
+
+    .nav__link {
+      display: block;
+      padding: 0.5rem 0;
+    }
+
+    .mobile-menu-btn {
+      display: block;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav__list.show .nav__item {
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
+    animation-delay: calc(var(--item-index) * 0.1s);
+  }
+</style>
+
+<script>
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navList = document.querySelector('.nav__list');
+
+  if (mobileMenuBtn && navList) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      navList.classList.toggle('show');
+    });
+  }
+</script>

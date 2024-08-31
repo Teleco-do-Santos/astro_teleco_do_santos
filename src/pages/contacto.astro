@@ -1,0 +1,436 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contacto | Teleco do Santos">
+    <Header />
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Contacto</h1>
+                <p>Estamos aquí para ayudarte</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h2>Envíanos un mensaje</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Asunto</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensaje</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h2>Información de contacto</h2>
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Santiago, Chile</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:telecodosantos@gmail.com">telecodosantos@gmail.com</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+56912345678">+56 9 1234 5678</a>
+                            </li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div id="map"></div>
+        </section>
+    </main>
+    <Footer />
+    <script is:inline type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+ // Declaración de tipo global para emailjs, google maps y la función initMap
+ declare global {
+        interface Window {
+            emailjs: any;
+            google: any;
+            initMap: () => void;
+        }
+    }
+
+    (function() {
+        window.emailjs.init("1xGTpvfrUjRpylBDs");
+    })();
+
+    // Definir initMap como una función global
+    window.initMap = function() {
+        const santiago = { lat: -33.4489, lng: -70.6693 };
+        const mapElement = document.getElementById('map');
+        if (mapElement) {
+            const map = new window.google.maps.Map(mapElement, {
+                zoom: 12,
+                center: santiago,
+                styles: [
+                    // ... (tus estilos de mapa)
+                ]
+            });
+
+            new window.google.maps.Marker({
+                position: santiago,
+                map: map,
+                title: 'Teleco do Santos'
+            });
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm') as HTMLFormElement | null;
+        if (form) {
+            form.addEventListener('submit', function(e: Event) {
+                e.preventDefault();
+                
+                const name = (document.getElementById('name') as HTMLInputElement)?.value;
+                const email = (document.getElementById('email') as HTMLInputElement)?.value;
+                const subject = (document.getElementById('subject') as HTMLInputElement)?.value;
+                const message = (document.getElementById('message') as HTMLTextAreaElement)?.value;
+
+                if (name && email && subject && message) {
+                    const templateParams = {
+                        from_name: name,
+                        from_email: email,
+                        subject: subject,
+                        message: message
+                    };
+
+                    window.emailjs.send('service_bwqob7v', 'template_airpc9f', templateParams)
+                        .then(function(response: any) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            alert('Gracias por tu mensaje. Te contactaremos pronto.');
+                            form.reset();
+                        }, function(error: any) {
+                            console.log('FAILED...', error);
+                            alert('Lo siento, hubo un error al enviar tu mensaje. Por favor, intenta de nuevo más tarde.');
+                        });
+                } else {
+                    alert('Por favor, completa todos los campos.');
+                }
+            });
+        }
+    });
+    </script>
+   <script is:inline async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+</Layout>
+
+<style>
+:root {
+    --color-bg: #050505;
+    --color-text: #ffffff;
+    --color-primary: #00ffff;
+    --color-secondary: #ff00ff;
+    --color-accent: #8b5cf6;
+    --color-dark: #0a0a0a;
+    --gradient-primary: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    --font-main: 'Inter', sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 200 20px;
+    text-align: center;
+
+}
+
+.hero {
+    background: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('/contacto5.jpeg') no-repeat center center;
+    background-size: cover;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 80% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 25%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+.contact-section {
+    padding: 100px 0;
+    background: 
+        linear-gradient(45deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)),
+        url('/609.jpg') repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-form, .contact-info {
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover, .contact-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.3);
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 5px;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--color-dark);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.4s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-info li:hover i {
+    transform: scale(1.2);
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-dark);
+    background: var(--gradient-primary);
+    transform: translateY(-3px);
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+    }
+    50% {
+        text-shadow: 0 0 20px var(--color-primary), 0 0 30px var(--color-primary), 0 0 40px var(--color-secondary);
+    }
+    100% {
+        text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary);
+    }
+}
+</style>

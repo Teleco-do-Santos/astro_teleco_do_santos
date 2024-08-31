@@ -1,0 +1,386 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Tele-Transport">
+  <Header />
+  <main>
+    <section class="video-container">
+      <iframe 
+      src="https://www.youtube.com/embed/YMUuS2EqK0o?si=Nsyzf3JX1XE5PjmU" 
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+      allowfullscreen
+    ></iframe>
+    </section>
+
+    <section class="project-description">
+      <div class="container">
+        <h2 class="section-title">Tele-transport</h2>
+        <p class="lead">Tele-transport es un proyecto innovador diseñado para mejorar la experiencia de los usuarios del transporte público.</p>
+        
+        <div class="content-grid">
+          <div class="content-card">
+            <h3>Nuestro Equipo</h3>
+            <ul class="team-list">
+              <li><strong>Daniel Galvez:</strong> Líder del grupo y modelador 3D</li>
+              <li><strong>Vicente Leiva:</strong> Programador de Arduino</li>
+              <li><strong>Sebastian Cruz:</strong> Programador del sistema</li>
+              <li><strong>Florencia Hernandez:</strong> Vocera del grupo y encargada del modelaje físico</li>
+              <li><strong>Martin Vera:</strong> Vocero en inglés y diseñador</li>
+            </ul>
+          </div>
+
+          <div class="content-card">
+            <h3>Objetivo del Proyecto</h3>
+            <p>Brindar comodidad y eficiencia a los usuarios del transporte público, permitiéndoles conocer en tiempo real la disponibilidad de asientos y la capacidad de cada vehículo.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Innovación Tecnológica</h3>
+            <p>Utilizamos cámaras con reconocimiento de personas instaladas en el interior de las micros para monitorear el número de pasajeros en tiempo real. Esta información se integra en una página web accesible para los usuarios.</p>
+          </div>
+
+          <div class="content-card">
+            <h3>Beneficios</h3>
+            <ul class="benefits-list">
+              <li><strong>Comodidad:</strong> Planificación anticipada del viaje, evitando largas esperas e incertidumbre.</li>
+              <li><strong>Eficiencia:</strong> Mejor gestión del espacio en el transporte público y flujo de pasajeros.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="conclusion">Tele-transport se compromete a transformar la experiencia del transporte público, haciéndolo más accesible y cómodo para todos.</p>
+      </div>
+      <section class="tubus-button-container">
+        <button onclick="window.open('https://tubuscl.vercel.app/', '_blank', 'noopener,noreferrer')" class="tubus-button">Visitar TuBus</button>
+      </section>
+    </section>
+
+    <section class="latest-posts">
+      <h2>Últimas Publicaciones</h2>
+      <div class="post-list">
+        <div class="post-item">
+          <a href="/leer-mas">
+            <img src="/python1.jpg" alt="Thumbnail Post 1">
+          </a>
+          <div class="post-content">
+            <h3>Python</h3>
+            <p>Aprendiendo Python en una hora por el canal de youtube de "Hola Mundo" </p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/Technical-Security-Final">
+            <img src="/logot.png" alt="Thumbnail Post 2">
+          </a>
+          <div class="post-content">
+            <h3>Technical Security </h3>
+            <p>Aprenderas Junto al Equipo de Technical Security hacer una casa domotica</p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/camaras">
+            <img src="/Hikvision-Logo.jpg" alt="Thumbnail Post 3">
+          </a>
+          <div class="post-content">
+            <h3>Camaras de seguridad</h3>
+            <p>Instalacion de camaras de seguridad y configuracion de la Camaras</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+  <style>
+    /* Estilos generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Estilos de la sección del video */
+.video-container {
+  margin: 60px auto;
+  max-width: 90%;
+  background-color: #1e1e1e;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.video-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335);
+}
+
+.video-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+  min-height: 600px;
+}
+
+/* Estilos para la sección de descripción del proyecto */
+.project-description {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 100px 60px;
+  border-radius: 30px;
+  margin: 120px auto;
+  max-width: 1200px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.project-description::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.15) 0%,
+    rgba(99, 102, 241, 0) 70%
+  );
+  transform: rotate(30deg);
+}
+
+.project-description h2 {
+  font-size: 4rem;
+  color: #f8fafc;
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-description p {
+  font-size: 1.25rem;
+  color: #e2e8f0;
+  line-height: 1.9;
+  margin-bottom: 30px;
+  position: relative;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Estilos para la lista del equipo */
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  list-style-type: none;
+}
+
+.team-list li {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #3a3a3a;
+}
+
+.team-list li h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.team-list li:hover h3 {
+  color: #1e88e5;
+}
+
+.team-list li p {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.team-list li:hover p {
+  color: #d0d0d0;
+}
+
+/* Estilos para el botón tubus */
+.tubus-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #13151a, #090b11);
+  border-radius: 16px;
+  margin: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tubus-button {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #5e03fc, #7e22ce);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(94, 3, 252, 0.3);
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tubus-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(94, 3, 252, 0.4);
+}
+
+/* Estilos de la sección de últimas publicaciones */
+.latest-posts {
+  background-color: #424242;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.latest-posts h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post-item {
+  width: 300px;
+  margin: 20px;
+  background-color: #616161;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.post-item:hover {
+  transform: scale(1.05);
+}
+
+.post-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 20px;
+}
+
+.post-content h3 {
+  margin-bottom: 10px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .video-container {
+    max-width: 100%;
+    margin: 30px auto;
+    border-radius: 16px;
+  }
+  
+  .video-container iframe {
+    min-height: auto;
+  }
+
+  .project-description {
+    padding: 80px 40px;
+    margin: 80px 20px;
+    border-radius: 24px;
+  }
+
+  .project-description h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+  }
+
+  .project-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .team-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px 15px;
+  }
+
+  .team-list li {
+    padding: 20px;
+  }
+
+  .tubus-button-container {
+    padding: 60px 20px;
+  }
+
+  .tubus-button {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-description {
+    padding: 60px 30px;
+    margin: 60px 15px;
+    border-radius: 20px;
+  }
+
+  .project-description h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .project-description p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+  </style>
+</Layout>

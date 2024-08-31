@@ -1,0 +1,742 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const eventos = [
+    {
+        titulo: "Feria Tecnico Profesional",
+        descripcion: "Descubre las últimas innovaciones en tecnología e gastronomica y su impacto en la comunidad.",
+        fecha: "23 de agosto, 2024",
+        hora: "10:00 - 12:30",
+        lugar: "Colegio Cardenal Silva Henriquez",
+        imagen: "/skibidi-topilet-a-fa-fa.webp",
+        tag: "Feria Tecnico Profesional"
+    },
+    {
+        titulo: "Astro: Revolucionando el Desarrollo Web Moderno",
+        descripcion: "Aprende cómo Astro está transformando la creación de sitios web con su enfoque en rendimiento y simplicidad.",
+        fecha: "22 de julio, 2024",
+        hora: "19:00 - 21:00",
+        lugar: "Transmisión en vivo",
+        imagen: "/ciberseguridad1.webp",
+        tag: "Webinar"
+    },
+    {
+        titulo: "Ecosistema Starlink X: Conectando el Futuro",
+        descripcion: "Explora las sinergias entre la tecnología satelital, IoT y 5G en la nueva era de conectividad global.",
+        fecha: "29 de julio, 2024",
+        hora: "17:00 - 19:00",
+        lugar: "Auditorio Cosmos",
+        imagen: "/Innovación-tecnológica.webp",
+        tag: "Conferencia"
+    }
+];
+---
+
+<Layout title="Eventos y Charlas - Teleco Do Santos">
+    <Header />
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Eventos y Charlas <span class="highlight">Teleco Do Santos</span></h1>
+                <p class="subtitle">Explora el futuro de la tecnologías</p>
+            </div>
+        </section>
+
+        <section id="eventos" class="eventos">
+            <div class="container">
+                <h2 class="section-title">Próximos Eventos</h2>
+                <div class="eventos-grid">
+                    {eventos.map((evento) => (
+                        <article class="evento-card">
+                            <div class="evento-image" style={`background-image: url('${evento.imagen}');`}></div>
+                            <div class="evento-content">
+                                <span class="evento-tag">{evento.tag}</span>
+                                <h3>{evento.titulo}</h3>
+                                <p>{evento.descripcion}</p>
+                                <div class="evento-meta">
+                                    <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> {evento.fecha}</span>
+                                    <span><i class="fas fa-clock" aria-hidden="true"></i> {evento.hora}</span>
+                                    <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {evento.lugar}</span>
+                                </div>
+                                <a href="/inscripcion" class="btn btn-primary">Reserva tu lugar</a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section class="inscripcion">
+            <div class="container">
+                <h2 class="section-title">¿Listo para ser parte del futuro?</h2>
+                <p>No te pierdas nuestros próximos eventos. Regístrate ahora y mantente actualizado.</p>
+                <a href="/newsletter" class="btn btn-primary">Suscríbete a nuestro newsletter</a>
+            </div>
+        </section>
+    </main>
+    <Footer />
+</Layout>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #050505;
+  --color-text: #ffffff;
+  --color-primary: #00ffff;
+  --color-secondary: #ff00ff;
+  --color-accent: #8b5cf6;
+  --color-dark: #0a0a0a;
+  --color-card-bg: rgba(255, 255, 255, 0.05);
+  --gradient-primary: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/cyber.webp') no-repeat center center;
+        background-size: cover;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+    }
+
+    .hero-particles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 80% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 25%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero-content {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 800px;
+    }
+
+    .hero-title {
+        font-size: 4.5rem;
+        font-weight: 900;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .hero-highlight {
+        display: block;
+        font-size: 5.5rem;
+        color: var(--color-accent);
+    }
+
+    .hero-subtitle {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .hero-cta {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: var(--gradient-primary);
+        color: var(--color-dark);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--color-text);
+        border: 2px solid var(--color-primary);
+    }
+
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .hero-scroll {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: var(--color-text);
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+    }
+
+    .hero-scroll:hover {
+        opacity: 1;
+    }
+
+    .scroll-text {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 0.5rem;
+    }
+
+    .scroll-icon {
+        width: 30px;
+        height: 50px;
+        border: 2px solid var(--color-text);
+        border-radius: 25px;
+        position: relative;
+    }
+
+    .scroll-icon::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        background: var(--color-text);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        animation: scrollAnim 2s infinite;
+    }
+
+    @keyframes scrollAnim {
+        0% { transform: translate(-50%, 0); opacity: 0; }
+        40% { opacity: 1; }
+        80% { transform: translate(-50%, 20px); opacity: 0; }
+        100% { opacity: 0; }
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--color-primary), 0 0 20px var(--color-primary); }
+        to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--color-primary), 0 0 40px var(--color-primary); }
+    }
+
+
+.hero .highlight {
+  color: var(--color-primary);
+}
+
+.hero .subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Eventos Section */
+.eventos {
+  padding: 100px 0;
+  background: 
+    linear-gradient(to right, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05)),
+    url('/back1.jpg') repeat;
+  position: relative;
+}
+
+.eventos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3.5rem;
+  margin-bottom: 60px;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-primary);
+  margin: 20px auto 0;
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.eventos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.evento-card {
+  background: var(--color-card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.evento-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+.evento-image {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.evento-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.evento-content {
+  padding: 2rem;
+}
+
+.evento-tag {
+  background: var(--gradient-primary);
+  color: var(--color-dark);
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.evento-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-family: var(--font-display);
+}
+
+.evento-card p {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.evento-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.evento-meta span {
+  display: flex;
+  align-items: center;
+}
+
+.evento-meta i {
+  margin-right: 0.5rem;
+  color: var(--color-primary);
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--color-dark);
+  border: none;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+/* Inscripcion Section */
+.inscripcion {
+    position: relative;
+    padding: 120px 0;
+    overflow: hidden;
+    background: linear-gradient(45deg, #000000, #1a1a1a);
+}
+
+.inscripcion::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 80%);
+  animation: rotate 20s linear infinite;
+}
+
+.inscripcion-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url('/path-to-your-tech-pattern.png') center/cover no-repeat,
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 25%),
+        radial-gradient(circle at 80% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 25%);
+    opacity: 0.1;
+    animation: bgPulse 10s ease-in-out infinite alternate;
+}
+
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.inscripcion h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-display);
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.inscripcion p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.inscripcion .btn-primary {
+  background: var(--color-dark);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.inscripcion .btn-primary:hover {
+  background: var(--color-primary);
+  color: var(--color-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+            font-size: 3.5rem;
+        }
+        .hero-highlight {
+            font-size: 4rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+        }
+    .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .section-title {
+    font-size: 2.8rem;
+  }
+
+  .eventos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inscripcion h2 {
+    font-size: 2.8rem;
+  }
+
+  .inscripcion p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-title {
+            font-size: 2.8rem;
+        }
+        .hero-highlight {
+            font-size: 3.2rem;
+        }
+        .hero-cta {
+            flex-direction: column;
+        }
+        .btn {
+            width: 100%;
+        }
+
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .evento-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes bgPulse {
+    0% { opacity: 0.1; }
+    100% { opacity: 0.3; }
+}
+
+.inscripcion .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.inscripcion .section-title {
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.inscripcion .highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.inscripcion .highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 3px;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.inscripcion .section-title:hover .highlight::after {
+    transform: scaleX(1);
+}
+
+.inscripcion-text {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: #ffffff;
+    opacity: 0.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inscripcion .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000000;
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.inscripcion .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.5);
+}
+
+.inscripcion .btn-text {
+    margin-right: 10px;
+}
+
+.inscripcion .btn-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.inscripcion .btn-primary:hover .btn-icon {
+    transform: translateX(5px);
+}
+</style>
+
+<script>
+    // Asegúrate de incluir la librería particles.js antes de este script
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+            move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+            modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+        },
+        retina_detect: true
+    });
+</script>

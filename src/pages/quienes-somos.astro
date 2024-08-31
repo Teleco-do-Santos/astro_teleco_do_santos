@@ -1,0 +1,379 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Quiénes Somos | Teleco do Santos">
+    <Header />
+    <main class="main-content">
+      <section class="hero">
+        <div class="container">
+          <h1 class="hero-title">Teleco do Santos</h1>
+          <p class="hero-subtitle">Innovando en Seguridad Tecnológica</p>
+        </div>
+      </section>
+  
+      <section class="about-us">
+        <div class="container">
+          <div class="content-wrapper">
+            <div class="text-content">
+              <h2 class="section-title">Nuestra Historia</h2>
+              <p>Somos un grupo de estudiantes de cuarto medio de la especialidad de telecomunicaciones del colegio Cardenal Raúl Silva Henríquez. Nuestro proyecto "Security Tech" para la Feria Técnico Profesional (FTP) busca revolucionar la forma en que las personas entienden y utilizan las tecnologías de seguridad.</p>
+              <p>A través de "Teleco te enseña", nos proponemos brindar conocimientos accesibles sobre las últimas tendencias en seguridad tecnológica, mejorando la protección de las personas en su entorno diario.</p>
+            </div>
+            <div class="image-content">
+              <img src="/public/grupotelco3.png" alt="Equipo Teleco do Santos" class="team-photo">
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="our-team">
+        <div class="container">
+          <h2 class="section-title">Nuestro Equipo</h2>
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="member-image">
+                <img src="/public/seba.jpeg" alt="Sebastian Canales">
+              </div>
+              <div class="member-info">
+                <h3>Sebastian Canales</h3>
+                <p>Líder</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-image">
+                <img src="/public/maxi.jpeg" alt="Maximiliano Cornejo">
+              </div>
+              <div class="member-info">
+                <h3>Maximiliano Cornejo</h3>
+                <p>Vocero</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-image">
+                <img src="/public/aaron.jpeg" alt="Aaron Morales">
+              </div>
+              <div class="member-info">
+                <h3>Aaron Morales</h3>
+                <p>Diseñador y Programador</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-image">
+                <img src="/public/juan.jpeg" alt="Juan Varas">
+              </div>
+              <div class="member-info">
+                <h3>Juan Varas</h3>
+                <p>Diseñador y Programador</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-image">
+                <img src="/public/opazo.jpeg" alt="Isidora Opazo">
+              </div>
+              <div class="member-info">
+                <h3>Isidora Opazo</h3>
+                <p>Encargada de Traducción</p>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="member-image">
+                <img src="/public/vicente.jpeg" alt="Vicente Morales">
+              </div>
+              <div class="member-info">
+                <h3>Vicente Morales</h3>
+                <p>Documentación</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section class="our-mission">
+        <div class="container">
+          <h2 class="section-title">Nuestra Misión</h2>
+          <div class="content-wrapper">
+            <div class="text-content">
+              <p>En Teleco do Santos, nos dedicamos a democratizar el conocimiento sobre seguridad tecnológica. Creemos que la información es poder, y nuestro objetivo es empoderar a cada individuo con las herramientas y el conocimiento necesarios para protegerse en el mundo digital actual.</p>
+              <a href="#" class="cta-button">Conoce más sobre nuestro proyecto</a>
+            </div>
+            <div class="image-content">
+              <img src="/public/ciberseguridad1.webp" alt="Nuestra Misión" class="mission-photo">
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </Layout>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --color-bg: #050505;
+  --color-text: #ffffff;
+  --color-primary: #00ffff;
+  --color-secondary: #ff00ff;
+  --font-main: 'Roboto', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content {
+  overflow: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--color-bg), #0a0a0a);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 25%),
+    radial-gradient(circle at 80% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 25%);
+  z-index: 1;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  opacity: 0.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--color-primary);
+}
+
+.about-us, .our-team, .our-mission {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.about-us::before, .our-mission::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
+  transform: skewY(-5deg);
+  z-index: -1;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.text-content, .image-content {
+  width: 100%;
+}
+
+.team-photo, .mission-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+
+    .team-member {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+    }
+    .member-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+    }
+
+    .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 3px solid var(--color-primary);
+    }
+
+    .member-info {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .team-member h3 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+      font-family: var(--font-display);
+      color: var(--color-primary);
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+    }
+
+    .team-member p {
+      margin: 0;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      opacity: 0.8;
+    }
+
+
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  color: var(--color-bg);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  margin-top: 1rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-primary);
+  }
+  to {
+    text-shadow: 0 0 10px var(--color-primary), 0 0 20px var(--color-primary), 0 0 30px var(--color-primary);
+  }
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .text-content, .image-content {
+    flex: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .about-us, .our-team, .our-mission {
+    padding: 3rem 0;
+  }
+
+  .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+  .team-member {
+    padding: 1rem;
+  }
+
+  .team-member img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+  </style>
+

@@ -1,0 +1,586 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Trucos de VSCode">
+  <Header />
+  <main>
+    <section class="video-container">
+      <iframe 
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/IU7YWGqo164?si=XqIc9P3O2FH1oOkC" 
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
+  style="border: none;"
+></iframe>
+    </section>
+
+    <section class="video-description">
+      <h2>Trucos para VSCode</h2>
+      <p>Estos hacks y extensiones son herramientas poderosas que pueden mejorar significativamente la experiencia de programación en VSCode. Al incluir estas recomendaciones en tu web de enseñanza, ayudarás a tus estudiantes a adoptar mejores prácticas y a ser más eficientes en su trabajo. ¡Explora cada uno de ellos y descubre cómo pueden transformar tu flujo de trabajo!</p>
+      <ol>
+        <li>
+          <h2>Atajos de Teclado:</h2> 
+        </li>
+      </ol>
+
+      <div class="keyboard-shortcuts">
+        <ul>
+          <li><kbd>Ctrl</kbd> + <kbd>P</kbd>: Abrir archivos rápidamente</li>
+          <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>: Acceder a la paleta de comandos</li>
+          <li><kbd>Ctrl</kbd> + <kbd>B</kbd>: Mostrar/ocultar barra lateral</li>
+          <li><kbd>Ctrl</kbd> + <kbd>`</kbd>: Abrir terminal integrada</li>
+          <li><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>: Formatear documento</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="extension-section">
+      <h2>Extensiones de VSCode</h2>
+      <div class="extension-grid">
+        <div class="extension-card">
+          <img src="/prettier.png" alt="Extension Icon">
+          <h3>Prettier</h3>
+          <p>Formateador de código para mantener un estilo consistente.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/live.png" alt="Extension Icon">
+          <h3>Live Server</h3>
+          <p>Servidor local para ver cambios en tiempo real.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/eslint.png" alt="Extension Icon">
+          <h3>ESLint</h3>
+          <p>Herramienta para identificar y reportar patrones en JavaScript.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/gitlens.png" alt="Extension Icon">
+          <h3>GitLens</h3>
+          <p>Mejora la integración de Git en VSCode.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/Microsoft.Icons.Default" alt="Extension Icon">
+          <h3>Emmet</h3>
+          <p>Genera rápidamente estructuras de HTML y CSS.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/Microsoft.VisualStudio.Services.Icons.Default" alt="Extension Icon">
+          <h3>Live Share</h3>
+          <p>Permite colaboración en tiempo real.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/marketplace.png" alt="Extension Icon">
+          <h3>Themes y Icon Themes</h3>
+          <p>Personaliza el aspecto de VSCode.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/visuales.jfif" alt="Extension Icon">
+          <h3>Custom Snippets</h3>
+          <p>Crea fragmentos de código reutilizables.</p>
+        </div>
+        <div class="extension-card">
+          <img src="/zen.webp" alt="Extension Icon">
+          <h3>Zen Mode</h3>
+          <p>Elimina distracciones ocultando barras laterales y menús.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="latest-posts">
+      <h2>Últimas Publicaciones</h2>
+      <div class="post-list">
+        <div class="post-item">
+          <a href="/leer-mas">
+            <img src="/python1.jpg" alt="Thumbnail Post 1">
+          </a>
+          <div class="post-content">
+            <h3>Python</h3>
+            <p>Aprendiendo Python en una hora por el canal de youtube de "Hola Mundo" </p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/Technical-Security-Final">
+            <img src="/logot.png" alt="Thumbnail Post 2">
+          </a>
+          <div class="post-content">
+            <h3>Technical Security </h3>
+            <p>Aprenderas Junto al Equipo de Technical Security hacer una casa domotica</p>
+          </div>
+        </div>
+        <div class="post-item">
+          <a href="/telefonos">
+            <img src="/ciberseguridad1.webp" alt="Thumbnail Post 3">
+          </a>
+          <div class="post-content">
+            <h3>Seguridad En Dispositivos Mobiles</h3>
+            <p>Aprende a proteger tu dispositivo movil y evitar que te roben tu informacion</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+ 
+</Layout>
+<Footer />
+
+<style>
+  /* Estilos generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+a {
+  color: #1e88e5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos de la sección del video */
+.video-container {
+  margin: 60px auto;
+  max-width: 90%;
+  background-color: #1e1e1e;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.video-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335);
+}
+
+.video-container iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+  min-height: 600px;
+}
+
+/* Estilos de la sección de descripción del video */
+.video-description {
+  padding: 60px 20px;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  margin: 40px 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+.video-description h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #f8f9fa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.video-description p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #e9ecef;
+  text-align: justify;
+}
+
+/* Estilos para la sección de atajos de teclado */
+.keyboard-shortcuts {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+.keyboard-shortcuts h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #f8f9fa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.keyboard-shortcuts ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+.keyboard-shortcuts li {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.keyboard-shortcuts li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.keyboard-shortcuts kbd {
+  background-color: #3a3a3a;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
+}
+
+.keyboard-shortcuts span {
+  color: #e9ecef;
+  flex-grow: 1;
+}
+
+/* Estilos para la sección de extensiones */
+.extension-section {
+  background-color: #1a1a1a;
+  border-radius: 16px;
+  padding: 60px 30px;
+  margin: 60px auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.extension-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #f8f9fa;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.extension-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.extension-card {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.extension-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(31, 38, 135, 0.2);
+}
+
+.extension-card img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.extension-card h3 {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.extension-card p {
+  font-size: 1rem;
+  color: #b0b0b0;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Estilos de la sección de últimas publicaciones */
+.latest-posts {
+  background-color: #424242;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+.latest-posts h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post-item {
+  width: 300px;
+  margin: 20px;
+  background-color: #616161;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.post-item:hover {
+  transform: scale(1.05);
+}
+
+.post-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-content {
+  padding: 20px;
+}
+
+.post-content h3 {
+  margin-bottom: 10px;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .video-container {
+    max-width: 100%;
+    margin: 30px auto;
+    border-radius: 16px;
+  }
+  
+  .video-container iframe {
+    min-height: auto;
+  }
+
+  .video-description {
+    padding: 40px 15px;
+    margin: 30px 10px;
+  }
+
+  .video-description h2 {
+    font-size: 2rem;
+  }
+
+  .video-description p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .keyboard-shortcuts {
+    padding: 30px 15px;
+    margin: 30px 10px;
+  }
+
+  .keyboard-shortcuts h2 {
+    font-size: 1.75rem;
+  }
+
+  .keyboard-shortcuts ul {
+    grid-template-columns: 1fr;
+  }
+
+  .extension-section {
+    padding: 40px 20px;
+    margin: 40px 10px;
+  }
+
+  .extension-section h2 {
+    font-size: 2rem;
+  }
+
+  .extension-grid {
+    grid-template-columns: 1fr;
+  }
+}
+  /* Estilos para la sección de atajos de teclado */
+  .keyboard-shortcuts {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 1200px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  }
+
+  .keyboard-shortcuts h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #f8f9fa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .keyboard-shortcuts ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .keyboard-shortcuts li {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .keyboard-shortcuts li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .keyboard-shortcuts kbd {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    min-width: 30px;
+    text-align: center;
+  }
+
+  .keyboard-shortcuts span {
+    color: #e9ecef;
+    flex-grow: 1;
+  }
+
+  /* Estilos para la sección de extensiones */
+  .extension-section {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    padding: 60px 30px;
+    margin: 60px auto;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .extension-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #f8f9fa;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+
+  .extension-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .extension-card {
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .extension-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(31, 38, 135, 0.2);
+  }
+
+  .extension-card img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+
+  .extension-card h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .extension-card p {
+    font-size: 1rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .extension-card a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3a3a3a;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  .extension-card a:hover {
+    background-color: #4a4a4a;
+  }
+
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .keyboard-shortcuts {
+      padding: 30px 15px;
+      margin: 30px 10px;
+    }
+
+    .keyboard-shortcuts h2 {
+      font-size: 1.75rem;
+    }
+
+    .keyboard-shortcuts ul {
+      grid-template-columns: 1fr;
+    }
+
+    .extension-section {
+      padding: 40px 20px;
+      margin: 40px 10px;
+    }
+
+    .extension-section h2 {
+      font-size: 2rem;
+    }
+
+    .extension-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
